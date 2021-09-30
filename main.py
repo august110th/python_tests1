@@ -19,11 +19,9 @@ class Stack:
 
     def test_stack(self):
         print("Введите данные для проверки:")
-        self.items = input()
-        self.items = list(''.join(self.items))
+        new_string_in = [input()]
+        new_string_out = list(''.join(new_string_in))
+        print(new_string_out)
 
 s=Stack()
 s.test_stack()
-print(s.items)
-s.pop()
-print(s.items)
