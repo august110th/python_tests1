@@ -17,11 +17,24 @@ class Stack:
     def size(self):
         return len(self.items)
 
-    def test_stack(self):
-        print("Введите данные для проверки:")
-        new_string_in = [input()]
-        new_string_out = list(''.join(new_string_in))
-        print(new_string_out)
+if __name__ == '__main__':
+    string_in = input('Введите данные: ')
+    counter = 0
+    pairs = {")": "(", "]": "[", "}": "{"}
+    s = Stack()
+    for i in string_in:
+        if i == "(" or i == "[" or i == "{":
+            s.push(i)
+        if i == ")" or i == "]" or i == "}":
+            if s.size() > 0:
+                element = s.peek()
+                if element == pairs[i]:
+                    s.pop()
+            else:
+                break
+        counter += 1
 
-s=Stack()
-s.test_stack()
+    if counter == len(string_in):
+        print("Сбалансированно")
+    else:
+        print("Несбалансированно")
